@@ -56,7 +56,7 @@
                       }
                     console.log(error);
                 });
-                //location.reload(true);
+                logInStatus();
             });
             
             //Log in
@@ -72,17 +72,24 @@
                       } else {
                         alert(errorMessage);
                       }
-                    
+                    logInStatus();
                 });
-                //location.reload(true);
             });
             
             window.onload = function() {
+                logInStatus();
+            }
+            
+            
+            //show/hide if logged in or out
+            function logInStatus() {
                 firebase.auth().onAuthStateChanged(function(user) {
                     if (user) {
-                       alert("hello");
                              document.getElementById("signUp").setAttribute('hidden', 'true'); 
-                        document.getElementById("logIn").setAttribute('hidden', 'true');document.getElementById("logOut").removeAttribute('hidden');
+                        document.getElementById("signUpSection").setAttribute('hidden', 'true'); 
+                        document.getElementById("logIn").setAttribute('hidden', 'true');
+                        document.getElementById("logInSection").setAttribute('hidden', 'true'); 
+                        document.getElementById("logOut").removeAttribute('hidden');
                     } 
                     else {
                         document.getElementById("signUp").removeAttribute('hidden');
