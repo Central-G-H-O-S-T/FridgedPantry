@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/cover.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<h2 id="title">Recommend Recipe</h2>
+
+<div class="row flex" style="margin: 0 auto">
+<ul>
+    <% data["recipes"].forEach(function(dish) { %>
+      <li>
+        <div class="col-lg-4 col-sm-6">
+          <div class="thumbnail">
+            <h5 class="recipeTitle">
+              <a href=<%=dish["source_url"]%>>  <%= dish["title"] %></a>
+            </h5>
+            <img src=<%=dish["image_url"]%> style="width:200px;height:150px;">
+          </div>
+        </div>
+      </li>
+    <% }) %>
+</ul>
+</div>
+
+
+<a href="/"> Search Again! </a>
