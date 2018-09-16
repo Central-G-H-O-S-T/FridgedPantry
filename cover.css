@@ -90,6 +90,9 @@ body {
 /*
  * Cover
  */
+.cover-heading {
+    font-size: 70px;
+}
 .cover {
   padding: 0 1.5rem;
 }
