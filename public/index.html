@@ -2,18 +2,23 @@
     <body>
         <button hidden id="signUp" onclick="showSignUp()"><h1>Sign Up</h1></button>
         <div hidden id="signUpSection">
+            Name: <input type="text" name="name" id="createName">
+            <br/>
             Email: <input type="email" name="email" id="createEmail">
             <br/>
             Password: <input type="password" name="password" id="createPassword">
+            <br/>
             <input type="submit" value="Submit" id="signUpBtn">
         </div>
         <br/><br/>
         
         <button hidden id="logIn" onclick="showLogIn()"><h1>Log In</h1></button>
         <div hidden id="logInSection">
+            <br/>
             Email: <input type="email" name="email" id="userEmail">
             <br/>
             Password: <input type="password" name="password" id="userPassword">
+            <br/>
             <input type="submit" value="Submit" id="logInBtn">
         </div>
         
@@ -33,13 +38,17 @@
                 messagingSenderId: "542605497175"
             };
             firebase.initializeApp(config);
-            
+            var database = firebase.database();
             
            //Sign up
             document.getElementById("signUpBtn").addEventListener('click', e=>{
+                const name = document.getElementById("createName").value;
                 const email = document.getElementById("createEmail").value;
                 const password = document.getElementById("createPassword").value;
-                firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+                firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
+                    alert('Account successfully created');
+                })
+                    .catch(function(error) {
                     var errorCode = error.code;
                     var errorMessage = error.message;
                     if (errorCode === 'auth/email-already-in-use') {
@@ -55,6 +64,15 @@
                         alert(errorMessage);
                       }
                     console.log(error);
+                });
+                
+                //database
+                var db = firebase.database().ref('users');
+                db.set({
+                    name: name,
+                    email: email
+                }).catch(function(error) {
+                    alert('Database error');
                 });
                 logInStatus();
             });
@@ -75,6 +93,9 @@
                     logInStatus();
                 });
             });
+            
+            
+            
             
             window.onload = function() {
                 logInStatus();
