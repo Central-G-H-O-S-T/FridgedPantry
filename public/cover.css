@@ -8,6 +8,9 @@ a:focus,
 a:hover {
   color: #fff;
 }
+* {
+    box-sizing: border-box;
+}
 
 /* Custom default button */
 .btn-secondary,
@@ -48,11 +51,13 @@ body {
 .cover-container {
   max-width: 42em;
 }
-
+.cover-heading {
+    font-size: 70px;
+}
 
 /*form*/
 input {
-    width: 200px;
+    width: 100px;
     padding: 2%;
     outline: none;
     border: none;
@@ -68,25 +73,50 @@ input:focus {
 input[type=submit] {
     border: 2px solid #3333cc;
     background-color: rgba(255, 255, 255, 0.25);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
 }
-#logInSection, #signUpSection {
+input[type=submit]:hover {
+    background-color: rgba(255, 255, 255, 0.55);
+}
+#logInSection, #signUpSection, #recipeSection {
     margin-bottom: 10px;
     padding: 2%;
-    display: none;
-    position: absolute;
     border-radius: 25px;
-    background-color: rgba(255, 255, 255, 0.25);
-    transition: opacity 0.5s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
 } 
-#signUp:hover + #signUpSection, #signUpSection:hover, #logIn:hover + #logInSection, #logInSection:hover {
-    display: inline-block;
+#logInSection {
+    width: 50vw;
 }
-#logIn, #signUp {
-    margin-bottom: 10px;
-    position: relative;
-    display: block;
+.flex {
+    margin-top: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+#signUpSection, #recipeSection {
+    width: 40%;
+    margin: 0 5%;
+    text-align: center;
 }
 
+#logInSection:hover, #signUpSection:hover, #recipeSection:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+#logInSection *, #signUpSection p, #signUpSection input {
+    display: inline-block;
+    margin-left: 10px;
+    text-align: left!important;
+}
+#signUpSection p {
+    width: 65px;
+    text-align: left!important;
+}
 /*
  * Header
  */
