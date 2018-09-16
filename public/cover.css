@@ -57,7 +57,7 @@ body {
 
 /*form*/
 .onlyItem {
-    margin: 0 auto;
+    margin: 0 auto!important;
 }
 #logOut {
     width: 200px;
