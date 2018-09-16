@@ -31,6 +31,9 @@
                 <p>Password</p> <input type="password" name="password" id="userPassword">
                 <input type="submit" value="Submit" id="logInBtn">
             </div>
+              
+            <!--Log out-->
+            <button hidden id="logOut" onclick="logOut()"><h3>Log Out</h3></button>
           </nav>
         </div>
       </header>
@@ -39,7 +42,7 @@
         <h1 class="cover-heading">Fridged Pantry</h1>
         <p class="lead"><i>Does your pantry seem cold and barren?  Why not make somerthing cool?</i></p>
         
-        <div class="flex">
+        <div id="sections" class="flex">
             <div id="signUpSection">
                 <div id="signUp" class="btn btn-lg btn-secondary">Register</div>
                 <br/><br/>
@@ -53,11 +56,13 @@
             </div>
           
             <div id="recipeSection">
-               <div class="btn btn-lg btn-secondary">Find Your Recipe</div>
-                <form action="/recipes" method="GET">
-                    <input type="text" placeholder="ingredients" name="search">
+               <div class="btn btn-lg btn-secondary" style="width: 300px;">Find Your Recipe</div>
+                <form action="/recipes" method="GET" style="margin-top: 45px;">
+                    <input style="width: 450px;" type="text" name="search">
+                    <br/><br/>
                     <input type="submit">
                 </form>
+                <p style="margin-top: 20px;">Search ingredients seperated by commas</p>
             </div>
         </div>
       </main>
@@ -90,13 +95,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-        
-        
-        
-        <button hidden id="logOut" onclick="logOut()"><h1>Log Out</h1></button>
-            
-        
-        
+ 
     </body>
 </html>

@@ -64,16 +64,17 @@ window.onload = function() {
 function logInStatus() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-                 document.getElementById("signUp").setAttribute('hidden', 'true'); 
-            document.getElementById("signUpSection").setAttribute('hidden', 'true'); 
-            document.getElementById("logIn").setAttribute('hidden', 'true');
-            document.getElementById("logInSection").setAttribute('hidden', 'true'); 
+            document.getElementById("signUpSection").setAttribute('hidden', 'true');  document.getElementById("logInSection").setAttribute('hidden', 'true'); 
             document.getElementById("logOut").removeAttribute('hidden');
+            document.getElementById("sections").classList.remove("flex");
+            document.getElementById("recipeSection").classList.add("onlyItem");
         } 
         else {
-            document.getElementById("signUp").removeAttribute('hidden');
-            document.getElementById("logIn").removeAttribute('hidden');
+            document.getElementById("signUpSection").removeAttribute('hidden');
+            document.getElementById("logInSection").removeAttribute('hidden');
              document.getElementById("logOut").setAttribute('hidden', 'true');
+             document.getElementById("sections").classList.add("flex");
+            document.getElementById("recipeSection").classList.remove("onlyItem");
           }
     });
 }
@@ -87,7 +88,7 @@ function showSignUp(){
 
 function logOut() {
     firebase.auth().signOut().then(function() {
-          alert("Successful sign out");
+          //alert("Successful sign out");
         }).catch(function(error) {
           alert("An error occured");    
     });

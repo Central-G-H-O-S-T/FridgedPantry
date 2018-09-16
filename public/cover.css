@@ -56,9 +56,24 @@ body {
 }
 
 /*form*/
+.onlyItem {
+    margin: 0 auto;
+}
+#logOut {
+    width: 200px;
+    padding:5%;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    border: 2px solid #3333cc;
+    background-color: rgba(255, 255, 255, 0.25);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
 input {
     width: 100px;
     padding: 2%;
+    color: #f2f2f2;
     outline: none;
     border: none;
     border-bottom: 2px solid #3333cc;
@@ -76,7 +91,7 @@ input[type=submit] {
     -webkit-transition: 0.5s;
     transition: 0.5s;
 }
-input[type=submit]:hover {
+input[type=submit]:hover, #logOut:hover {
     background-color: rgba(255, 255, 255, 0.55);
 }
 #logInSection, #signUpSection, #recipeSection {
@@ -90,8 +105,10 @@ input[type=submit]:hover {
 #logInSection {
     width: 50vw;
 }
-.flex {
+#sections {
     margin-top: 70px;
+}
+.flex {
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
