@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/s.css">
+<h1>Results Page!!!</h1>
+
+<ul>
+    <% data["recipes"].forEach(function(dish) { %>
+      <li>
+          <strong>
+            <a href=<%=dish["source_url"]%>>  <%= dish["title"] %></a>
+          </strong>
+
+           <img src=<%=dish["image_url"]%> style="width:200px;height:150px;">
+      </li>
+    <% }) %>
+</ul>
+
+
+<a href="/"> Search Again! </a>
